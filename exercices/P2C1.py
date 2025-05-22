@@ -2,9 +2,9 @@
 nombre1 = input("Donnez un premier nombre : ")
 nombre2 = input("Donnez un second nombre : ")
 
-# nombre1et  nombre2sont des chaînes de caractères (str). Utilisez la fonction  isnumeric  (explication de la fonction) pour vérifier que ce sont des nombres.
+# isnumeric() permet de vérifier si la chaîne de caractères est un nombre
 # Si ce n'est pas le cas, sortez du programme en générant une exception avec le mot cléraise:raise SystemExit("Fin du programme")
-if nombre1.isnumeric and nombre2.isnumeric :
+if nombre1.isnumeric() and nombre2.isnumeric() :
     print("les 2 nombres sont bien des nombres")
 else :
     raise SystemExit("Fin du programme")
@@ -33,7 +33,7 @@ match operation :
     case "/" :
 
         if nombre2 != 0 :
-            resultat = round(nombre1 / nombre2)
+            resultat = round(nombre1 / nombre2, 2)
         else :
            raise SystemExit("La division par zéro est impossible, fin du programme")
     case _ :
