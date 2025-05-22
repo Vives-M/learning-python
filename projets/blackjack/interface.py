@@ -1,16 +1,34 @@
-# Implement the main method which runs a Black Jack game from the terminal. It should work this way:
-# Card? "y" or "yes" to get a new card
-# > yes
-# Your score is 6, bank is 17
+# Implémente la fonction principale qui lance un jeu de blackjack depuis le terminal. Il devrait fonctionner comme suit :
+# Souhaitez-vous une nouvelle carte ? "o" ou "oui" pour piocher
+# > oui
+# Votre score est de 6, la banque a 17.
+# Souhaitez-vous une nouvelle carte ? "o" ou "oui" pour piocher
+# > oui
+# Votre score est de 16, la banque a 17.
+# Souhaitez-vous une nouvelle carte ? "o" ou "oui" pour piocher
+# > oui
+# Votre score est de 19, la banque a 17.
+# Souhaitez-vous une nouvelle carte ? "o" ou "oui" pour piocher
+# > non
+# Félicitations, vous avez plus de points que la banque, WINNER !
 
-# Card? "y" or "yes" to get a new card
-# > yes
-# Your score is 16, bank is 17
+from black_jack import score_pioche_banque
+from black_jack import pioche_carte_joueur
+from croupier import etat_de_jeu
+from croupier import message_fin_de_jeu
 
-# Card? "y" or "yes" to get a new card
-# > yes
-# Your score is 19, bank is 17
+score_banque = score_pioche_banque()
+score_joueur = 0
+veut_piocher = True
 
-# Card? "y" or "yes" to get a new card
-# > no
-# You beat the bank! You win.
+while veut_piocher:
+    choix_joueur = input("Souhaitez-vous une nouvelle carte ? 'o' ou 'oui' pour piocher : ")
+    if choix_joueur == 'oui' or choix_joueur == 'o':
+        score_joueur += pioche_carte_joueur()
+        etat_de_jeu(score_banque, score_joueur)
+    elif choix_joueur == 'non' or choix_joueur == 'n':
+        veut_piocher = False
+    else:
+        print("Je n'ai pas compris votre réponse...")
+        
+message_fin_de_jeu(score_banque, score_joueur)
