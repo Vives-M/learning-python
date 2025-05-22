@@ -19,7 +19,7 @@ def salaire_horaire(salaire_hebdomadaire, heures_travaillees):
 
 # Demandez à l'utilisateur de saisir son salaire annuel.
 
-votre_salaire_annuel = float(input("Quel est votre salaire annuel ? "))
+votre_salaire_annuel = float(input("Quel est votre salaire annuel (brut) ? "))
 
 # Demandez à l'utilisateur de saisir le nombre d'heures travaillées par semaine.
 
@@ -33,7 +33,7 @@ votre_salaire_hebdomadaire = salaire_hebdomadaire(votre_salaire_mensuel)
 # Affichez le résultat sous la forme : "Votre salaire horaire est de XX euros".
 
 votre_salaire_horaire = round(salaire_horaire(votre_salaire_hebdomadaire, vos_heures_travaillees),2)
-print(f"Votre salaire horaire est de {votre_salaire_horaire} euros.")
+print(f"Votre salaire horaire est de {votre_salaire_horaire} euros bruts, ce qui représente environ {round(votre_salaire_horaire*0.77,2)} euros nets.")
 
 
 
