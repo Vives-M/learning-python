@@ -12,10 +12,8 @@
 # > non
 # Félicitations, vous avez plus de points que la banque, WINNER !
 
-from black_jack import score_pioche_banque
-from black_jack import pioche_carte_joueur
-from croupier import etat_de_jeu
-from croupier import message_fin_de_jeu
+from black_jack import score_pioche_banque, pioche_carte_joueur
+from croupier import etat_de_jeu, message_fin_de_jeu
 
 score_banque = score_pioche_banque()
 score_joueur = 0
@@ -30,5 +28,5 @@ while veut_piocher:
         veut_piocher = False
     else:
         print("Je n'ai pas compris votre réponse...")
-        
+
 message_fin_de_jeu(score_banque, score_joueur)
