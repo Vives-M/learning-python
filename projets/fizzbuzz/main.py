@@ -3,18 +3,29 @@
 nombres = list(range(1, 101))
 # print(nombres)
 
-for nombre in nombres:
+for n in nombres:
 # Multiples de 3 et 5 : affichage de 'FizzBuzz' à la place du nombre
-    if int(nombre/3) == (nombre/3) and int(nombre/5) == (nombre/5):
-        nombre = 'FizzBuzz'
-        print(nombre)
-# Multiples de 3 : affichage de 'Fizz' à la place du nombre
-    elif int(nombre/3) == (nombre/3):
-        nombre = 'Fizz'
-        print(nombre)
-# Multiples de 5 : affichage de 'Buzz' à la place du nombre
-    elif int(nombre/5) == (nombre/5):
-        nombre = 'Buzz'
-        print(nombre)
+    if int(n/3) == (n/3) and int(n/5) == (n/5):
+        n = 'FizzBuzz'
+        print(n)
+# Multiples de 3 : affichage de 'Fizz' à la place du n
+    elif int(n/3) == (n/3):
+        n = 'Fizz'
+        print(n)
+# Multiples de 5 : affichage de 'Buzz' à la place du n
+    elif int(n/5) == (n/5):
+        n = 'Buzz'
+        print(n)
     else:
-        print(nombre)
+        print(n)
+
+# Refacto :
+# for n in nombres:
+#     if n % 3 == 0 and n % 5 == 0:
+#         print('FizzBuzz')
+#     elif n % 3 == 0:
+#         print('Fizz')
+#     elif n % 5 == 0:
+#         print('Buzz')
+#     else:
+#         print(n)
