@@ -31,21 +31,39 @@ def translate_word(word):
     # si un mot commence avec une ou plusieurs consonnes suivies de "y", déplace les consonnes précédant le "y" à la fin du mot et ajoute "ay" à la fin
 
         # if word[0] in consonants and word[1] == "y":
-        if word[0] in consonants and word.startswith("y", 1):
-            new_word = (word + word[0])[1:]
-            print(new_word + pig_latin_adding)
-            return new_word + pig_latin_adding
-        # if word[0] in consonants and word[1] in consonants and word[2] == "y":
-        if word[0] in consonants and word[1] in consonants and word.startswith("y", 2):
-            new_word = (word + word[:2])[2:]
-            print(new_word + pig_latin_adding)
-            return new_word + pig_latin_adding
-        if word[0] in consonants and word[1] in consonants and word[2] in consonants and word.startswith("y", 3):
-            new_word = (word + word[:3])[3:]
-            print(new_word + pig_latin_adding)
-            return new_word + pig_latin_adding
+        # if word[0] in consonants and word.startswith("y", 1):
+        #     new_word = (word + word[0])[1:]
+        #     print(new_word + pig_latin_adding)
+        #     return new_word + pig_latin_adding
+        # # if word[0] in consonants and word[1] in consonants and word[2] == "y":
+        # if word[0] in consonants and word[1] in consonants and word.startswith("y", 2):
+        #     new_word = (word + word[:2])[2:]
+        #     print(new_word + pig_latin_adding)
+        #     return new_word + pig_latin_adding
+        # if word[0] in consonants and word[1] in consonants and word[2] in consonants and word.startswith("y", 3):
+        #     new_word = (word + word[:3])[3:]
+        #     print(new_word + pig_latin_adding)
+        #     return new_word + pig_latin_adding
 
-    
+    # Si un mot ne compte que des consonnes avant un y, alors on retourne le mot à partir du y avec les consonnes et "ay"
+        word_length = len(word)
+        print(f"word = {word} and word length = {word_length}")
+        n = 0
+        while word[n] in consonants :
+            print(n, word[n])
+            if word[n+1] == "y":
+                print(f"la {n+2}eme lettre est un y")
+                new_word = (word + word[:n+1])[n+1:]
+                print(f"le nouveau mot est : {new_word + pig_latin_adding}")
+                break
+            elif word[n+1] in vowels:
+                print("le mot ne compte pas plusieurs consonnes avant un y")
+                break
+            else:
+                n=n+1
+            # else:
+            #     print("le mot ne compte pas plusieurs voyelles avant un y")
+            #     break
 
     # si un mot commence avec aucune ou plusieurs consonnes suivies de "qu", déplace ces consonnes à la fin du mot et ajoute "ay" à la fin
     # It would be simpler and safer to use a loop that goes and looks for the first vowel, wherever that may be, and then split the word there.
@@ -60,18 +78,18 @@ def translate_word(word):
             print(new_word + pig_latin_adding)
             return new_word + pig_latin_adding
     # si un mot commence avec une ou plusieurs consonnes, déplace ces consonnes à la fin du mot et ajoute "ay" à la fin
-        if word[0] in consonants and word[1] in consonants and word[2] in consonants :
-            new_word = (word + word[0] + word[1] + word[2])[3:]
-            print(new_word + pig_latin_adding)
-            return new_word + pig_latin_adding
-        if word[0] in consonants and word[1] in consonants :
-            new_word = (word + word[:2])[2:]
-            print(new_word + pig_latin_adding)
-            return new_word + pig_latin_adding
-        if word[0] in consonants:
-            new_word = (word + word[0])[1:]
-            print(new_word + pig_latin_adding)
-            return new_word + pig_latin_adding
+        # if word[0] in consonants and word[1] in consonants and word[2] in consonants :
+        #     new_word = (word + word[0] + word[1] + word[2])[3:]
+        #     print(new_word + pig_latin_adding)
+        #     return new_word + pig_latin_adding
+        # if word[0] in consonants and word[1] in consonants :
+        #     new_word = (word + word[:2])[2:]
+        #     print(new_word + pig_latin_adding)
+        #     return new_word + pig_latin_adding
+        # if word[0] in consonants:
+        #     new_word = (word + word[0])[1:]
+        #     print(new_word + pig_latin_adding)
+        #     return new_word + pig_latin_adding
 
     else:
         word_too_short = print("Votre mot est trop court.")
@@ -90,5 +108,5 @@ def translate(text):
 
 
 
-translate_word("strychnine")
+translate_word("trlkmying")
 # print(translate("voici une phrase"))
