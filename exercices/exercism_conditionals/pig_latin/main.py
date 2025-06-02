@@ -29,7 +29,7 @@ def translate_word(word):
             print(word + pig_latin_adding)
             return word + pig_latin_adding
     # si un mot commence avec une ou plusieurs consonnes suivies de "y", déplace les consonnes précédant le "y" à la fin du mot et ajoute "ay" à la fin
-
+    # Ancien code sans boucle while (trop redondant et non exhaustif):
         # if word[0] in consonants and word[1] == "y":
         # if word[0] in consonants and word.startswith("y", 1):
         #     new_word = (word + word[0])[1:]
@@ -45,7 +45,13 @@ def translate_word(word):
         #     print(new_word + pig_latin_adding)
         #     return new_word + pig_latin_adding
 
-    # Si un mot ne compte que des consonnes avant un y, alors on retourne le mot à partir du y avec les consonnes et "ay"
+    # Nouveau code avec la boucle while :
+    # Remarque du mentor : "It would be simpler and safer to use a loop that goes and looks for the first vowel, wherever that may be, and then split the word there.
+    # (The same holds for how you assume that a vowel 'y' will always be the second or third letter in the word.
+    # Sometimes it's the fourth, as in spry or strychnine.)"
+    # Tant que la lettre est une consonne, la boucle continue. Si la lettre suivant la/les consonnes est un y, on renvoie le nouveau mot
+    # (déplace les consonnes précédant le "y" à la fin du mot et ajoute "ay" à la fin)
+    # Sinon, on arrête la boucle
         word_length = len(word)
         print(f"word = {word} and word length = {word_length}")
         n = 0
@@ -66,9 +72,7 @@ def translate_word(word):
             #     break
 
     # si un mot commence avec aucune ou plusieurs consonnes suivies de "qu", déplace ces consonnes à la fin du mot et ajoute "ay" à la fin
-    # It would be simpler and safer to use a loop that goes and looks for the first vowel, wherever that may be, and then split the word there.
-    # (The same holds for how you assume that a vowel 'y' will always be the second or third letter in the word.
-    # Sometimes it's the fourth, as in spry or strychnine.)
+
         if word.startswith("qu"):
             new_word = (word + word[:2])[2:]
             print(new_word + pig_latin_adding)
