@@ -23,18 +23,29 @@ def translate_word(word):
     if len(word) > 2:
         print(len(word))
     # si un mot commence avec une voyelle ou avec "xr" ou "yt", ajoute "ay" à la fin du mot
-        if word[0] in vowels or word[0:2] == "xr" or word[0:2] == "yt":
+        # if word[0] in vowels or word[0:2] == "xr" or word[0:2] == "yt":
+        #     return word + pig_latin_adding
+        if word[0] in vowels or word.startswith("xr") or word.startswith("yt"):
+            print(word + pig_latin_adding)
             return word + pig_latin_adding
     # si un mot commence avec une ou plusieurs consonnes suivies de "y", déplace les consonnes précédant le "y" à la fin du mot et ajoute "ay" à la fin
 
-        if word[0] in consonants and word[1] == "y":
+        # if word[0] in consonants and word[1] == "y":
+        if word[0] in consonants and word.startswith("y", 1):
             new_word = (word + word[0])[1:]
             print(new_word + pig_latin_adding)
             return new_word + pig_latin_adding
-        if word[0] in consonants and word[1] in consonants and word[2] == "y":
+        # if word[0] in consonants and word[1] in consonants and word[2] == "y":
+        if word[0] in consonants and word[1] in consonants and word.startswith("y", 2):
             new_word = (word + word[:2])[2:]
             print(new_word + pig_latin_adding)
             return new_word + pig_latin_adding
+        if word[0] in consonants and word[1] in consonants and word[2] in consonants and word.startswith("y", 3):
+            new_word = (word + word[:3])[3:]
+            print(new_word + pig_latin_adding)
+            return new_word + pig_latin_adding
+
+    
 
     # si un mot commence avec aucune ou plusieurs consonnes suivies de "qu", déplace ces consonnes à la fin du mot et ajoute "ay" à la fin
     # It would be simpler and safer to use a loop that goes and looks for the first vowel, wherever that may be, and then split the word there.
@@ -79,5 +90,5 @@ def translate(text):
 
 
 
-translate_word("tv")
+translate_word("strychnine")
 # print(translate("voici une phrase"))
