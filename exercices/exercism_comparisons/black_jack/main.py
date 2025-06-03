@@ -62,7 +62,6 @@ def is_blackjack(card_one, card_two):
     :param card_one, card_two: str - card dealt. See below for values.
     :return: bool - is the hand is a blackjack (two cards worth 21).
     """
-
     face_cards.append('10')
     # print(face_cards)
     if card_one in ace_card and card_two in face_cards:
@@ -77,12 +76,30 @@ def can_split_pairs(card_one, card_two):
     :param card_one, card_two: str - cards dealt.
     :return: bool - can the hand be split into two pairs? (i.e. cards are of the same value).
     """
-
     if card_one == card_two:
         return True
     elif card_one in face_cards and card_two in face_cards:
         return True
     return False
+
+def can_double_down(card_one, card_two):
+    """Determine if a blackjack player can place a double down bet.
+
+    :param card_one, card_two: str - first and second cards in hand.
+    :return: bool - can the hand can be doubled down? (i.e. totals 9, 10 or 11 points).
+    """
+    value_of_card_one = value_of_card(card_one)
+    value_of_card_two = value_of_card(card_two)
+    match (value_of_card_one + value_of_card_two) :
+        case 9:
+            return True
+        case 10:
+            return True
+        case 11:
+            return True
+        case _:
+            return False
+
 
 # print(value_of_card('2'))
 # print(higher_card("J", "10"))
