@@ -4,6 +4,15 @@ ace_card = ["A"]
 cards =  numeric_cards + face_cards + ace_card
 
 def value_of_card(card):
+    """Determine the scoring value of a card.
+
+    :param card: str - given card.
+    :return: int - value of a given card.  See below for values.
+
+    1.  'J', 'Q', or 'K' (otherwise known as "face cards") = 10
+    2.  'A' (ace card) = 1
+    3.  '2' - '10' = numerical value.
+    """
     if card in numeric_cards:
         print(f"{card} : It is a real card and it brings {card} points !")
         return int(card)
