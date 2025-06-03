@@ -56,6 +56,22 @@ def value_of_ace(card_one, card_two):
         return 11
     return 1
 
+def is_blackjack(card_one, card_two):
+    """Determine if the hand is a 'natural' or 'blackjack'.
+
+    :param card_one, card_two: str - card dealt. See below for values.
+    :return: bool - is the hand is a blackjack (two cards worth 21).
+    """
+
+    face_cards.append('10')
+    # print(face_cards)
+    if card_one in ace_card and card_two in face_cards:
+        return True
+    elif card_two in ace_card and card_one in face_cards:
+        return True
+    return False
+
 
 # print(value_of_card('2'))
 # print(higher_card("J", "10"))
+print(is_blackjack('10', 'J'))
