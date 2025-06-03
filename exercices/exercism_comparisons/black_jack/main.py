@@ -14,16 +14,37 @@ def value_of_card(card):
     3.  '2' - '10' = numerical value.
     """
     if card in numeric_cards:
-        print(f"{card} : It is a real card and it brings {card} points !")
+        # print(f"{card} : It is a real card and it brings {card} points !")
         return int(card)
     elif card == "A":
-        print(f"{card} : It is a real card and it brings {1} point !")
+        # print(f"{card} : It is a real card and it brings {1} point !")
         return 1
     elif card in face_cards:
-        print(f"{card} : It is a real card and it brings {10} points !")
+        # print(f"{card} : It is a real card and it brings {10} points !")
         return 10
-    else:
-        print(f"{card} : This is not a real card !")
+    raise ValueError("This is not a real card !")
+
+def higher_card(card_one, card_two):
+    """Determine which card has a higher value in the hand.
+
+    :param card_one, card_two: str - cards dealt in hand.  See below for values.
+    :return: str or tuple - resulting Tuple contains both cards if they are of equal value.
+
+    1.  'J', 'Q', or 'K' (otherwise known as "face cards") = 10
+    2.  'A' (ace card) = 1
+    3.  '2' - '10' = numerical value.
+    """
+    if card_one in cards and card_two in cards:
+        value_of_card_one = value_of_card(card_one)
+        value_of_card_two = value_of_card(card_two)
+        if value_of_card_one == value_of_card_two:
+            return card_one, card_two
+        elif value_of_card_one > value_of_card_two:
+            return card_one
+        return card_two
+    raise ValueError("This is not a real card !")
 
 
-print(value_of_card('2'))
+
+# print(value_of_card('2'))
+print(higher_card("J", "10"))
