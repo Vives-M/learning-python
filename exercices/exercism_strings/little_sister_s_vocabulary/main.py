@@ -45,13 +45,14 @@ def remove_suffix_ness(word):
     For example: "heaviness" becomes "heavy", but "sadness" becomes "sad".
     """
 
-    if word[-5] == 'i':
-        root_word = word[:-5]
-        root_word += 'y'
-    else :
-        root_word = word[:-4]
-    return root_word
+    # if word[-5] == 'i':
+    #     root_word = word[:-5]
+    #     root_word += 'y'
+    # else :
+    #     root_word = word[:-4]
+    # return root_word
 
+    return word[:-4] if word[-5] != 'i' else word[:-5] + 'y'
 
 
 def adjective_to_verb(sentence, index):
@@ -64,8 +65,10 @@ def adjective_to_verb(sentence, index):
     For example, ("It got dark as the sun set.", 2) becomes "darken".
     """
     prefix = 'en'
-    word_to_change = sentence.split()[index]
-    print(word_to_change)
-    if word_to_change.endswith(('.', '!', '?')):
-        word_to_change = word_to_change[:-1]
-    return word_to_change + prefix
+    # word_to_change = sentence.split()[index]
+    # print(word_to_change)
+    # if word_to_change.endswith(('.', '!', '?')):
+    #     word_to_change = word_to_change[:-1]
+    # return word_to_change + prefix
+
+    return sentence.split()[index].strip('.') + prefix
