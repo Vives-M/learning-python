@@ -81,5 +81,11 @@ def perfect_score(student_info):
     :param student_info: list - of [<student name>, <score>] lists.
     :return: list - first `[<student name>, 100]` or `[]` if no student score of 100 is found.
     """
-
-    pass
+    perfect_scores = []
+    for info in student_info:
+        if info[-1] == 100:
+            perfect_scores.append(info)
+            return info
+    if not perfect_scores:
+        return []
+print(perfect_score(student_info=[["Charles", 90], ["Tony", 80], ["Alex", 98], ["Radjah", 99]]))
