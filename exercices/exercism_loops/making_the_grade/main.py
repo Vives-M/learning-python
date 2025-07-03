@@ -56,8 +56,8 @@ def letter_grades(highest):
     """
 
     letter_grade_interval = round((highest - 40) / 4)
-    return [41, 41 + letter_grade_interval, 41 + letter_grade_interval * 2, 41 + letter_grade_interval * 3]
-
+    # return [41, 41 + letter_grade_interval, 41 + letter_grade_interval * 2, 41 + letter_grade_interval * 3]
+    return [41 + letter_grade_interval * number for number in range(4)]
 # print(letter_grades(85))
 
 def student_ranking(student_scores, student_names):
@@ -69,8 +69,8 @@ def student_ranking(student_scores, student_names):
     """
 
     sorted_list = []
-    for i, student in enumerate(student_names):
-        total_student_information = str(i+1) + ". " + str(student) + ": " + str(student_scores[i])
+    for counter, student in enumerate(student_names):
+        total_student_information = str(counter+1) + ". " + str(student) + ": " + str(student_scores[counter])
         sorted_list.append(total_student_information)
     return sorted_list
 
@@ -81,11 +81,10 @@ def perfect_score(student_info):
     :param student_info: list - of [<student name>, <score>] lists.
     :return: list - first `[<student name>, 100]` or `[]` if no student score of 100 is found.
     """
-    perfect_scores = []
+
     for info in student_info:
         if info[-1] == 100:
-            perfect_scores.append(info)
             return info
-    if not perfect_scores:
-        return []
-print(perfect_score(student_info=[["Charles", 90], ["Tony", 80], ["Alex", 98], ["Radjah", 99]]))
+    return []
+
+# print(perfect_score(student_info=[["Charles", 90], ["Tony", 80], ["Alex", 100], ["Radjah", 99]]))
